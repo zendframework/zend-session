@@ -51,7 +51,7 @@ class MongoDB implements SaveHandlerInterface
      *
      * @param Mongo|MongoClient $mongo
      * @param MongoDBOptions $options
-     * @throws InvalidArgumentException
+     * @throws Zend\Session\Exception\InvalidArgumentException
      */
     public function __construct($mongo, MongoDBOptions $options)
     {
