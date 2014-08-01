@@ -68,19 +68,6 @@ class MongoDBOptions extends AbstractOptions
      */
     protected $modifiedField = 'modified';
 
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __construct($options = null)
-    {
-        parent::__construct($options);
-
-        if ($this->saveOptions === array('w' => 1) && version_compare(phpversion('mongo'), '1.3.0', '<')) {
-            $this->saveOptions = array('safe' => true);
-        }
-    }
-
     /**
      * Set database name
      *
