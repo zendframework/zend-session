@@ -42,7 +42,6 @@ class SessionConfig extends StandardConfig
      * @var array Valid cache limiters (per session.cache_limiter)
      */
     protected $validCacheLimiters = array(
-        '',
         'nocache',
         'public',
         'private',
