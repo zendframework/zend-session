@@ -93,10 +93,7 @@ class SessionManager extends AbstractManager
             $this->registerSaveHandler($saveHandler);
         }
 
-        $oldSessionData = array();
-        if (isset($_SESSION)) {
-            $oldSessionData = $_SESSION;
-        }
+        $oldSessionData = $_SESSION;
 
         session_start();
 
