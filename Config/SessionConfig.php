@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -42,7 +42,6 @@ class SessionConfig extends StandardConfig
      * @var array Valid cache limiters (per session.cache_limiter)
      */
     protected $validCacheLimiters = array(
-        '',
         'nocache',
         'public',
         'private',
@@ -73,6 +72,7 @@ class SessionConfig extends StandardConfig
      */
     public function setStorageOption($storageName, $storageValue)
     {
+        $key = false;
         switch ($storageName) {
             case 'remember_me_seconds':
                 // do nothing; not an INI option
@@ -86,10 +86,9 @@ class SessionConfig extends StandardConfig
         }
 
         $result = ini_set($key, $storageValue);
-        if (false === $result) {
-            throw new Exception\InvalidArgumentException(
-                "'{$key}' is not a valid sessions-related ini setting."
-            );
+        if (FALSE === $result) {
+            throw new Exception\InvalidArgumentException("'" . $key .
+                    "' is not a valid sessions-related ini setting.");
         }
         return $this;
     }
@@ -161,6 +160,7 @@ class SessionConfig extends StandardConfig
         $this->setOption('save_path', $savePath);
         return $this;
     }
+
 
     /**
      * Set session.serialize_handler
