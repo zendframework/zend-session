@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Session Config - zend-session</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-session</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Session Config</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../container/">Session Container</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../manager/">Session Manager</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../save-handler/">Session Save Handlers</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../storage/">Session Storage</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../validator/">Session Validators</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-session">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#session-config">Session Config</a></li>
+        
+            <li><a href="#standard-config">Standard Config</a></li>
+        
+            <li><a href="#session-config_1">Session Config</a></li>
+        
+            <li><a href="#custom-configuration">Custom Configuration</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../container/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Reference &raquo;</li>
+      
+    
+  
+  <li class="active">Session Config</li>
+</ol>
+
+<h1 id="session-config">Session Config</h1>
+<p>zend-session comes with a standard set of config classes, allowing setting where
+a cookie lives, session lifetime, and even configuration of ext/session when
+using <code>Zend\Session\Config\SessionConfig</code>.</p>
+<h2 id="standard-config">Standard Config</h2>
+<p><code>Zend\Session\Config\StandardConfig</code> provides the base interface for
+configuring sessions when <em>not</em> leveraging ext/session. This is utilized more
+for specialized cases, such as when you might have session management done by
+another system, or when testing.</p>
+<h3 id="basic-configuration-options">Basic Configuration Options</h3>
+<p>The following configuration options are defined by <code>Zend\Session\Config\StandardConfig</code>.</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cache_expire</code></td>
+<td><code>integer</code></td>
+<td>Specifies time-to-live for cached session pages in minutes.</td>
+</tr>
+<tr>
+<td><code>cookie_domain</code></td>
+<td><code>string</code></td>
+<td>Specifies the domain to set in the session cookie.</td>
+</tr>
+<tr>
+<td><code>cookie_httponly</code></td>
+<td><code>boolean</code></td>
+<td>Marks the cookie as accessible only through the HTTP protocol.</td>
+</tr>
+<tr>
+<td><code>cookie_lifetime</code></td>
+<td><code>integer</code></td>
+<td>Specifies the lifetime of the cookie in seconds which is sent to the browser.</td>
+</tr>
+<tr>
+<td><code>cookie_path</code></td>
+<td><code>string</code></td>
+<td>Specifies path to set in the session cookie.</td>
+</tr>
+<tr>
+<td><code>cookie_secure</code></td>
+<td><code>boolean</code></td>
+<td>Specifies whether cookies should only be sent over secure connections.</td>
+</tr>
+<tr>
+<td><code>entropy_length</code></td>
+<td><code>integer</code></td>
+<td>Specifies the number of bytes which will be read from the file specified in entropy_file.</td>
+</tr>
+<tr>
+<td><code>entropy_file</code></td>
+<td><code>string</code></td>
+<td>Defines a path to an external resource (file) which will be used as an additional entropy.</td>
+</tr>
+<tr>
+<td><code>gc_maxlifetime</code></td>
+<td><code>integer</code></td>
+<td>Specifies the number of seconds after which data will be seen as ‘garbage’.</td>
+</tr>
+<tr>
+<td><code>gc_divisor</code></td>
+<td><code>integer</code></td>
+<td>Defines the probability that the gc process is started on every session initialization.</td>
+</tr>
+<tr>
+<td><code>gc_probability</code></td>
+<td><code>integer</code></td>
+<td>Defines the probability that the gc process is started on every session initialization.</td>
+</tr>
+<tr>
+<td><code>hash_bits_per_character</code></td>
+<td><code>integer</code></td>
+<td>Defines how many bits are stored in each character when converting the binary hash data.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Specifies the name of the session which is used as cookie name.</td>
+</tr>
+<tr>
+<td><code>remember_me_seconds</code></td>
+<td><code>integer</code></td>
+<td>Specifies how long to remember the session before clearing data.</td>
+</tr>
+<tr>
+<td><code>save_path</code></td>
+<td><code>string</code></td>
+<td>Defines the argument which is passed to the save handler.</td>
+</tr>
+<tr>
+<td><code>use_cookies</code></td>
+<td><code>boolean</code></td>
+<td>Specifies whether the module will use cookies to store the session id.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre class="codehilite"><code class="language-php">use Zend\Session\Config\StandardConfig;
+use Zend\Session\SessionManager;
+
+$config = new StandardConfig();
+$config-&gt;setOptions([
+    'remember_me_seconds' =&gt; 1800,
+    'name'                =&gt; 'zf2',
+]);
+$manager = new SessionManager($config);</code></pre>
+
+
+<h2 id="session-config_1">Session Config</h2>
+<p><code>Zend\Session\Config\SessionConfig</code> provides an interface for configuring
+sessions that leverage PHP's ext/session. Most configuration options configure
+either the <code>Zend\Session\Storage</code> OR configure ext/session directly.</p>
+<h3 id="basic-configuration-options_1">Basic Configuration Options</h3>
+<p>The following configuration options are defined by <code>Zend\Session\Config\SessionConfig</code>;
+note that it inherits all configuration from
+<code>Zend\Session\Config\StandardConfig</code>.</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cache_limiter</code></td>
+<td><code>string</code></td>
+<td>Specifies the cache control method used for session pages.</td>
+</tr>
+<tr>
+<td><code>hash_function</code></td>
+<td><code>string</code></td>
+<td>Allows you to specify the hash algorithm used to generate the session IDs.</td>
+</tr>
+<tr>
+<td><code>php_save_handler</code></td>
+<td><code>string</code></td>
+<td>Defines the name of a PHP save_handler embedded into PHP.</td>
+</tr>
+<tr>
+<td><code>serialize_handler</code></td>
+<td><code>string</code></td>
+<td>Defines the name of the handler which is used to serialize/deserialize data.</td>
+</tr>
+<tr>
+<td><code>url_rewriter_tags</code></td>
+<td><code>string</code></td>
+<td>Specifies which HTML tags are rewritten to include session id if transparent sid enabled.</td>
+</tr>
+<tr>
+<td><code>use_trans_sid</code></td>
+<td><code>boolean</code></td>
+<td>Whether transparent sid support is enabled or not.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="basic-usage_1">Basic Usage</h3>
+<pre class="codehilite"><code class="language-php">use Zend\Session\Config\SessionConfig;
+use Zend\Session\SessionManager;
+
+$config = new SessionConfig();
+$config-&gt;setOptions([
+    'phpSaveHandler' =&gt; 'redis',
+    'savePath' =&gt; 'tcp://127.0.0.1:6379?weight=1&amp;timeout=1',
+]);
+$manager = new SessionManager($config);</code></pre>
+
+
+<h3 id="service-manager-factory">Service Manager Factory</h3>
+<p>zend-session ships with a <a href="https://zendframework.github.io/zend-servicemanager/">zend-servicemanager</a>
+factory which reads configuration data from the application configuration and
+injects a corresponding instance of <code>Zend\Session\Config\SessionConfig</code> into the
+session manager automatically.</p>
+<p>To use this factory, you first need to register it with the service manager by adding the
+appropriate factory definition:</p>
+<pre class="codehilite"><code class="language-php">'service_manager' =&gt; [
+    'factories' =&gt; [
+        'Zend\Session\Config\ConfigInterface' =&gt; 'Zend\Session\Service\SessionConfigFactory',
+    ],
+],</code></pre>
+
+
+<blockquote>
+<h4 id="automated-factory-registration">Automated factory registration</h4>
+<p>Starting with zend-mvc v3, if you are using the <a href="https://zendframework.github.io/zend-component-installer">component installer</a>
+in your application, the above registration will be made automatically for
+you when you install zend-session.</p>
+</blockquote>
+<p>Then place your application's session configuration in the root-level
+configuration key <code>session_config</code>:</p>
+<pre class="codehilite"><code class="language-php">'session_config' =&gt; [
+    'phpSaveHandler' =&gt; 'redis',
+    'savePath' =&gt; 'tcp://127.0.0.1:6379?weight=1&amp;timeout=1',
+],</code></pre>
+
+
+<p>Any of the configuration options defined for <a href="#session-config">SessionConfig</a> can be used
+there, as well as the following factory-specific configuration options:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config_class</code></td>
+<td><code>string</code></td>
+<td>Name of the class to use as the configuration container (Defaults to <code>Zend\Session\Config\SessionConfig</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="custom-configuration">Custom Configuration</h2>
+<p>In the event that you prefer to create your own session configuration; you
+<em>must</em> implement <code>Zend\Session\Config\ConfigInterface</code> which contains the basic
+interface for items needed when implementing a session. This includes cookie
+configuration, lifetime, session name, save path, and an interface for getting
+and setting options.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../container/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>
