@@ -206,7 +206,6 @@ $manager = new SessionManager();
 $manager-&gt;getValidatorChain()
     -&gt;attach('session.validate', [new HttpUserAgent(), 'isValid']);</code></pre>
 
-
 <h2 id="remote-addr">Remote Addr</h2>
 <p><code>Zend\Session\Validator\RemoteAddr</code> provides a validator to check the session
 against the originally stored <code>$_SERVER['REMOTE_ADDR']</code> variable. Validation
@@ -219,7 +218,6 @@ use Zend\Session\SessionManager;
 $manager = new SessionManager();
 $manager-&gt;getValidatorChain()
     -&gt;attach('session.validate', [new RemoteAddr(), 'isValid']);</code></pre>
-
 
 <h2 id="custom-validators">Custom Validators</h2>
 <p>You may want to provide your own custom validators to validate against other

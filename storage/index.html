@@ -214,7 +214,6 @@ $storage         = new ArrayStorage($populateStorage);
 $manager         = new SessionManager();
 $manager-&gt;setStorage($storage);</code></pre>
 
-
 <h2 id="session-storage_1">Session Storage</h2>
 <p><code>Zend\Session\Storage\SessionStorage</code> replaces <code>$_SESSION,</code> providing a facility
 to store all information in an <code>ArrayObject</code>. This means that it may not be
@@ -227,7 +226,6 @@ use Zend\Session\SessionManager;
 $manager = new SessionManager();
 $manager-&gt;setStorage(new SessionStorage());</code></pre>
 
-
 <h2 id="session-array-storage">Session Array Storage</h2>
 <p><code>Zend\Session\Storage\SessionArrayStorage</code> provides a facility to store all
 information directly in the <code>$_SESSION</code> superglobal. This storage class provides
@@ -239,7 +237,6 @@ use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
 $manager-&gt;setStorage(new SessionArrayStorage());</code></pre>
-
 
 <h2 id="custom-storage">Custom Storage</h2>
 <p>To create a custom storage container, you <em>must</em> implement

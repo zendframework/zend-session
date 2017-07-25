@@ -210,7 +210,7 @@ options in your local or global config:</p>
 <pre class="codehilite"><code class="language-php">use Zend\Session;
 
 return [
-    'session' =&gt; [
+    'session_manager' =&gt; [
         'config' =&gt; [
             'class' =&gt; Session\Config\SessionConfig::class,
             'options' =&gt; [
@@ -224,7 +224,6 @@ return [
         ],
     ],
 ];</code></pre>
-
 
 <p>The following illustrates how you might utilize the above configuration to
 create the session manager:</p>
@@ -348,7 +347,6 @@ class Module
         ];
     }
 }</code></pre>
-
 
 <p>When you create a new <code>Zend\Session\Container</code> (see
 <a href="../container/">Session Container</a> page) in a controller, for example, it will

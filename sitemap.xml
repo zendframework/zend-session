@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,38 +12,38 @@
     
         
     <url>
-     <loc>None/config/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/config/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/container/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/container/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/manager/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/manager/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/save-handler/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/save-handler/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/storage/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/storage/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/validator/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/validator/</loc>
+     <lastmod>2017-07-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
