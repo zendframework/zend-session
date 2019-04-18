@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="zend-session">  
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="//img/favicon.ico">
 
-    <title>Session Storage - zend-session - Zend Framework Docs</title>
+    <title>zend-session - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-f3b53f5ceb.css">
+    <link rel="stylesheet" href="//css/styles-f3b53f5ceb.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="//img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-session</a>
+            <a href="/.">zend-session</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -80,37 +80,37 @@
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../config/" class="subnavigation__link">Session Config</a>
+        <a href="/config/" class="subnavigation__link">Session Config</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../container/" class="subnavigation__link">Session Container</a>
+        <a href="/container/" class="subnavigation__link">Session Container</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../manager/" class="subnavigation__link">Session Manager</a>
+        <a href="/manager/" class="subnavigation__link">Session Manager</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../save-handler/" class="subnavigation__link">Session Save Handlers</a>
-    </li>
-
-                            
-                                
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Session Storage</a>
+        <a href="/save-handler/" class="subnavigation__link">Session Save Handlers</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../validator/" class="subnavigation__link">Session Validators</a>
+        <a href="/storage/" class="subnavigation__link">Session Storage</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="/validator/" class="subnavigation__link">Session Validators</a>
     </li>
 
                             
@@ -187,166 +187,18 @@
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
-                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-    <li><a href="https://framework.zend.com/">Home</a></li>
 
-    
-        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-        
-            <li><a href="..">zend-session</a></li>
-
-            
-                
-                    <li>Reference</li>
-                
-            
-
-            <li class="active">Session Storage</li>
-        
-    
-</ol>
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 
-    
-        <h2 class="chapter__headline">Reference</h2>
-    
-
-    
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">In This Article</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#array-storage" class="toc__link">Array Storage</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#session-storage_1" class="toc__link">Session Storage</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#session-array-storage" class="toc__link">Session Array Storage</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#custom-storage" class="toc__link">Custom Storage</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
-
-    <h1 id="session-storage">Session Storage</h1>
-<p>zend-session comes with a standard set of storage handlers. Storage handlers are
-the intermediary between when the session starts and when the session writes and
-closes.  The default session storage is
-<code>Zend\Session\Storage\SessionArrayStorage</code>.</p>
-<h2 id="array-storage">Array Storage</h2>
-<p><code>Zend\Session\Storage\ArrayStorage</code> provides a facility to store all information
-in an <code>ArrayObject</code>. This storage method is likely incompatible with 3rd party
-libraries and all properties will be inaccessible through the <code>$_SESSION</code>
-superglobal. Additionally <code>ArrayStorage</code> will not automatically repopulate the
-storage container in the case of each new request and would have to manually be
-re-populated.</p>
-<h3 id="basic-usage">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\ArrayStorage;
-use Zend\Session\SessionManager;
-
-$populateStorage = ['foo' =&gt; 'bar'];
-$storage         = new ArrayStorage($populateStorage);
-$manager         = new SessionManager();
-$manager-&gt;setStorage($storage);</code></pre>
-
-<h2 id="session-storage_1">Session Storage</h2>
-<p><code>Zend\Session\Storage\SessionStorage</code> replaces <code>$_SESSION,</code> providing a facility
-to store all information in an <code>ArrayObject</code>. This means that it may not be
-compatible with 3rd party libraries, although information stored in the
-<code>$_SESSION</code> superglobal should be available in other scopes.</p>
-<h3 id="basic-usage_1">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\SessionStorage;
-use Zend\Session\SessionManager;
-
-$manager = new SessionManager();
-$manager-&gt;setStorage(new SessionStorage());</code></pre>
-
-<h2 id="session-array-storage">Session Array Storage</h2>
-<p><code>Zend\Session\Storage\SessionArrayStorage</code> provides a facility to store all
-information directly in the <code>$_SESSION</code> superglobal. This storage class provides
-the most compatibility with 3rd party libraries and allows for directly storing
-information into <code>$_SESSION</code>.</p>
-<h3 id="basic-usage_2">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\SessionArrayStorage;
-use Zend\Session\SessionManager;
-
-$manager = new SessionManager();
-$manager-&gt;setStorage(new SessionArrayStorage());</code></pre>
-
-<h2 id="custom-storage">Custom Storage</h2>
-<p>To create a custom storage container, you <em>must</em> implement
-<code>Zend\Session\Storage\StorageInterface</code>. This interface extends each of
-<code>ArrayAccess</code>, <code>Traversable</code>, <code>Serializable</code>, and <code>Countable</code>, and it is in the
-methods those define that the majority of implementation occurs. The following
-methods must also be implemented:</p>
-<pre class="codehilite"><code class="language-php">public function getRequestAccessTime() : int;
-
-public function lock(int|string $key = null) : void;
-public function isLocked(int|string $key = null) : bool;
-public function unlock(int|string $key = null) : void;
-
-public function markImmutable() : void;
-public function isImmutable() : bool;
-
-public function setMetadata(string $key, mixed $value, bool $overwriteArray = false) : void;
-public function getMetadata(string $key = null) : mixed;
-
-public function clear(inst|string $key = null) : void;
-
-public function fromArray(array $array) : void;
-public function toArray(bool $metaData = false) : array;</code></pre>
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../save-handler/">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../validator/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-session/edit/master/docs/book/storage.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             <!-- content:end -->
             </div>
             <div class="col-md-3 col-xs-12 sidebar">
@@ -362,7 +214,7 @@ public function toArray(bool $metaData = false) : array;</code></pre>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-session</a>
+            <a href="/.">zend-session</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -376,37 +228,37 @@ public function toArray(bool $metaData = false) : array;</code></pre>
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../config/" class="subnavigation__link">Session Config</a>
+        <a href="/config/" class="subnavigation__link">Session Config</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../container/" class="subnavigation__link">Session Container</a>
+        <a href="/container/" class="subnavigation__link">Session Container</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../manager/" class="subnavigation__link">Session Manager</a>
+        <a href="/manager/" class="subnavigation__link">Session Manager</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../save-handler/" class="subnavigation__link">Session Save Handlers</a>
-    </li>
-
-                            
-                                
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Session Storage</a>
+        <a href="/save-handler/" class="subnavigation__link">Session Save Handlers</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../validator/" class="subnavigation__link">Session Validators</a>
+        <a href="/storage/" class="subnavigation__link">Session Storage</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="/validator/" class="subnavigation__link">Session Validators</a>
     </li>
 
                             
@@ -485,11 +337,11 @@ public function toArray(bool $metaData = false) : array;</code></pre>
 </footer>
 
     <script>
-        var base_url = '..',
+        var base_url = '/',
             siteName = 'zend-session';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="//js/scripts-8d7ae56abf.js"></script>
+        <script src="/search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
