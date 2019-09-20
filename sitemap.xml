@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://docs.zendframework.com/zend-session/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/config/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/container/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/manager/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/save-handler/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/storage/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.zendframework.com/zend-session/validator/</loc>
-     <lastmod>2019-09-19</lastmod>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
