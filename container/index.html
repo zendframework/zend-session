@@ -264,19 +264,18 @@ for all their session data.</p>
 <code>Zend\Session\Storage</code>, where the namespace is used as the key.
 <code>Zend\Session\Container</code> itself is an instance of an <code>ArrayObject</code>.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Container;
+<p> <pre class=codehilite><code class=language-php>use Zend\Session\Container;
 
 $container = new Container('namespace');
-$container-&gt;item = 'foo';</code></pre>
-
+$container-&gt;item = 'foo';</code></pre></p>
 <h2 id="setting-the-default-session-manager">Setting the Default Session Manager</h2>
 <p>In the event you are using multiple session managers or prefer to be explicit,
 the default session manager that is utilized can be explicitly set.</p>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Container;
+<p> <pre class=codehilite><code class=language-php>use Zend\Session\Container;
 use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
-Container::setDefaultManager($manager);</code></pre>
+Container::setDefaultManager($manager);</code></pre></p>
 
 
 
@@ -310,7 +309,7 @@ Container::setDefaultManager($manager);</code></pre>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-session/edit/master/docs/container.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-session/edit/master/docs/book/container.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

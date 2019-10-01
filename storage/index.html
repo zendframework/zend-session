@@ -275,46 +275,43 @@ libraries and all properties will be inaccessible through the <code>$_SESSION</c
 superglobal. Additionally <code>ArrayStorage</code> will not automatically repopulate the
 storage container in the case of each new request and would have to manually be
 re-populated.</p>
-<h3 id="basic-usage">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\ArrayStorage;
+<h3>Basic Usage</h3>
+<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\ArrayStorage;
 use Zend\Session\SessionManager;
 
 $populateStorage = ['foo' =&gt; 'bar'];
 $storage         = new ArrayStorage($populateStorage);
 $manager         = new SessionManager();
-$manager-&gt;setStorage($storage);</code></pre>
-
+$manager-&gt;setStorage($storage);</code></pre></p>
 <h2 id="session-storage_1">Session Storage</h2>
 <p><code>Zend\Session\Storage\SessionStorage</code> replaces <code>$_SESSION,</code> providing a facility
 to store all information in an <code>ArrayObject</code>. This means that it may not be
 compatible with 3rd party libraries, although information stored in the
 <code>$_SESSION</code> superglobal should be available in other scopes.</p>
-<h3 id="basic-usage_1">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\SessionStorage;
+<h3>Basic Usage</h3>
+<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\SessionStorage;
 use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
-$manager-&gt;setStorage(new SessionStorage());</code></pre>
-
+$manager-&gt;setStorage(new SessionStorage());</code></pre></p>
 <h2 id="session-array-storage">Session Array Storage</h2>
 <p><code>Zend\Session\Storage\SessionArrayStorage</code> provides a facility to store all
 information directly in the <code>$_SESSION</code> superglobal. This storage class provides
 the most compatibility with 3rd party libraries and allows for directly storing
 information into <code>$_SESSION</code>.</p>
-<h3 id="basic-usage_2">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Session\Storage\SessionArrayStorage;
+<h3>Basic Usage</h3>
+<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
-$manager-&gt;setStorage(new SessionArrayStorage());</code></pre>
-
+$manager-&gt;setStorage(new SessionArrayStorage());</code></pre></p>
 <h2 id="custom-storage">Custom Storage</h2>
 <p>To create a custom storage container, you <em>must</em> implement
 <code>Zend\Session\Storage\StorageInterface</code>. This interface extends each of
 <code>ArrayAccess</code>, <code>Traversable</code>, <code>Serializable</code>, and <code>Countable</code>, and it is in the
 methods those define that the majority of implementation occurs. The following
 methods must also be implemented:</p>
-<pre class="codehilite"><code class="language-php">public function getRequestAccessTime() : int;
+<p> <pre class=codehilite><code class=language-php>public function getRequestAccessTime() : int;
 
 public function lock(int|string $key = null) : void;
 public function isLocked(int|string $key = null) : bool;
@@ -329,7 +326,7 @@ public function getMetadata(string $key = null) : mixed;
 public function clear(inst|string $key = null) : void;
 
 public function fromArray(array $array) : void;
-public function toArray(bool $metaData = false) : array;</code></pre>
+public function toArray(bool $metaData = false) : array;</code></pre></p>
 
 
 
@@ -363,7 +360,7 @@ public function toArray(bool $metaData = false) : array;</code></pre>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-session/edit/master/docs/storage.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-session/edit/master/docs/book/storage.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

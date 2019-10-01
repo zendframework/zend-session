@@ -273,9 +273,9 @@ PHP save handler when utilized in conjunction with
 <code>Zend\Cache\Storage\Adapter\AdapterInterface</code> to be utilized as a session save
 handler. Generally if you are utilizing the <code>Cache</code> save handler; you are likely
 using products such as memcached.</p>
-<h3 id="basic-usage">Basic usage</h3>
+<h3>Basic usage</h3>
 <p>A basic example is one like the following:</p>
-<pre class="codehilite"><code class="language-php">use Zend\Cache\StorageFactory;
+<p> <pre class=codehilite><code class=language-php>use Zend\Cache\StorageFactory;
 use Zend\Session\SaveHandler\Cache;
 use Zend\Session\SessionManager;
 
@@ -290,8 +290,7 @@ $cache = StorageFactory::factory([
 
 $saveHandler = new Cache($cache);
 $manager = new SessionManager();
-$manager-&gt;setSaveHandler($saveHandler);</code></pre>
-
+$manager-&gt;setSaveHandler($saveHandler);</code></pre></p>
 <h2 id="dbtablegateway">DbTableGateway</h2>
 <p><code>Zend\Session\SaveHandler\DbTableGateway</code> allows you to utilize
 <code>Zend\Db\TableGateway\TableGatewayInterface</code> implementations as a session save
@@ -300,18 +299,17 @@ handler. Setup of a <code>DbTableGateway</code> save handler requires an instanc
 <code>Zend\Session\SaveHandler\DbTableGatewayOptions</code>. In the most basic setup, a
 <code>TableGateway</code> object and using the defaults of the <code>DbTableGatewayOptions</code> will
 provide you with what you need.</p>
-<h3 id="creating-the-database-table">Creating the database table</h3>
-<pre class="codehilite"><code class="language-sql">CREATE TABLE `session` (
+<h3>Creating the database table</h3>
+<p> <pre class=codehilite><code class=language-sql>CREATE TABLE `session` (
     `id` char(32),
     `name` char(32),
     `modified` int,
     `lifetime` int,
     `data` text,
      PRIMARY KEY (`id`, `name`)
-);</code></pre>
-
-<h3 id="basic-usage_1">Basic usage</h3>
-<pre class="codehilite"><code class="language-php">use Zend\Db\TableGateway\TableGateway;
+);</code></pre></p>
+<h3>Basic usage</h3>
+<p> <pre class=codehilite><code class=language-php>use Zend\Db\TableGateway\TableGateway;
 use Zend\Session\SaveHandler\DbTableGateway;
 use Zend\Session\SaveHandler\DbTableGatewayOptions;
 use Zend\Session\SessionManager;
@@ -319,16 +317,15 @@ use Zend\Session\SessionManager;
 $tableGateway = new TableGateway('session', $adapter);
 $saveHandler  = new DbTableGateway($tableGateway, new DbTableGatewayOptions());
 $manager      = new SessionManager();
-$manager-&gt;setSaveHandler($saveHandler);</code></pre>
-
+$manager-&gt;setSaveHandler($saveHandler);</code></pre></p>
 <h2 id="mongodb">MongoDB</h2>
 <p><code>Zend\Session\SaveHandler\MongoDB</code> allows you to provide a MongoDB collection to
 be utilized as a session save handler. You provide the options in the
 <code>Zend\Session\SaveHandler\MongoDBOptions</code> class. You must install the
 <a href="http://php.net/mongodb">mongodb PHP extensions</a> and the
 <a href="https://github.com/mongodb/mongo-php-library">MongoDB PHP library</a>.</p>
-<h3 id="basic-usage_2">Basic Usage</h3>
-<pre class="codehilite"><code class="language-php">use MongoDB\Client;
+<h3>Basic Usage</h3>
+<p> <pre class=codehilite><code class=language-php>use MongoDB\Client;
 use Zend\Session\SaveHandler\MongoDB;
 use Zend\Session\SaveHandler\MongoDBOptions;
 use Zend\Session\SessionManager;
@@ -340,8 +337,7 @@ $options = new MongoDBOptions([
 ]);
 $saveHandler = new MongoDB($mongoClient, $options);
 $manager     = new SessionManager();
-$manager-&gt;setSaveHandler($saveHandler);</code></pre>
-
+$manager-&gt;setSaveHandler($saveHandler);</code></pre></p>
 <h2 id="custom-save-handlers">Custom Save Handlers</h2>
 <p>There may be cases where you want to create a save handler.  Creating a custom
 save handler is much like creating a custom PHP save handler, with minor
@@ -382,7 +378,7 @@ class.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-session/edit/master/docs/save-handler.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-session/edit/master/docs/book/save-handler.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

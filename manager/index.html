@@ -271,7 +271,7 @@ session manager.</p>
 session hijacking.</p>
 <p>The following illustrates how you may configure the session manager by setting
 options in your local or global config:</p>
-<pre class="codehilite"><code class="language-php">use Zend\Session;
+<p> <pre class=codehilite><code class=language-php>use Zend\Session;
 
 return [
     'session_manager' =&gt; [
@@ -287,11 +287,10 @@ return [
             Session\Validator\HttpUserAgent::class,
         ],
     ],
-];</code></pre>
-
+];</code></pre></p>
 <p>The following illustrates how you might utilize the above configuration to
 create the session manager:</p>
-<pre class="codehilite"><code class="language-php">use Zend\Mvc\ModuleRouteListener;
+<p> <pre class=codehilite><code class=language-php>use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\Session\SessionManager;
 use Zend\Session\Config\SessionConfig;
@@ -412,8 +411,7 @@ class Module
             ],
         ];
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>When you create a new <code>Zend\Session\Container</code> (see
 <a href="../container/">Session Container</a> page) in a controller, for example, it will
 use the session configured above.</p>
@@ -450,7 +448,7 @@ use the session configured above.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-session/edit/master/docs/manager.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-session/edit/master/docs/book/manager.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
