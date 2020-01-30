@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Object-oriented interface to PHP sessions and storage.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-session/storage/">
+    <link rel="canonical" href="https://docs.zendframework.com/storage/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Session Storage - zend-session - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -185,9 +185,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-session/">laminas/laminas-session.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -276,42 +276,48 @@ superglobal. Additionally <code>ArrayStorage</code> will not automatically repop
 storage container in the case of each new request and would have to manually be
 re-populated.</p>
 <h3>Basic Usage</h3>
-<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\ArrayStorage;
+<pre><code class="language-php">use Zend\Session\Storage\ArrayStorage;
 use Zend\Session\SessionManager;
 
 $populateStorage = ['foo' =&gt; 'bar'];
 $storage         = new ArrayStorage($populateStorage);
 $manager         = new SessionManager();
-$manager-&gt;setStorage($storage);</code></pre></p>
+$manager-&gt;setStorage($storage);
+</code></pre>
+
 <h2 id="session-storage_1">Session Storage</h2>
 <p><code>Zend\Session\Storage\SessionStorage</code> replaces <code>$_SESSION,</code> providing a facility
 to store all information in an <code>ArrayObject</code>. This means that it may not be
 compatible with 3rd party libraries, although information stored in the
 <code>$_SESSION</code> superglobal should be available in other scopes.</p>
 <h3>Basic Usage</h3>
-<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\SessionStorage;
+<pre><code class="language-php">use Zend\Session\Storage\SessionStorage;
 use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
-$manager-&gt;setStorage(new SessionStorage());</code></pre></p>
+$manager-&gt;setStorage(new SessionStorage());
+</code></pre>
+
 <h2 id="session-array-storage">Session Array Storage</h2>
 <p><code>Zend\Session\Storage\SessionArrayStorage</code> provides a facility to store all
 information directly in the <code>$_SESSION</code> superglobal. This storage class provides
 the most compatibility with 3rd party libraries and allows for directly storing
 information into <code>$_SESSION</code>.</p>
 <h3>Basic Usage</h3>
-<p> <pre class=codehilite><code class=language-php>use Zend\Session\Storage\SessionArrayStorage;
+<pre><code class="language-php">use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Session\SessionManager;
 
 $manager = new SessionManager();
-$manager-&gt;setStorage(new SessionArrayStorage());</code></pre></p>
+$manager-&gt;setStorage(new SessionArrayStorage());
+</code></pre>
+
 <h2 id="custom-storage">Custom Storage</h2>
 <p>To create a custom storage container, you <em>must</em> implement
 <code>Zend\Session\Storage\StorageInterface</code>. This interface extends each of
 <code>ArrayAccess</code>, <code>Traversable</code>, <code>Serializable</code>, and <code>Countable</code>, and it is in the
 methods those define that the majority of implementation occurs. The following
 methods must also be implemented:</p>
-<p> <pre class=codehilite><code class=language-php>public function getRequestAccessTime() : int;
+<pre><code class="language-php">public function getRequestAccessTime() : int;
 
 public function lock(int|string $key = null) : void;
 public function isLocked(int|string $key = null) : bool;
@@ -326,7 +332,8 @@ public function getMetadata(string $key = null) : mixed;
 public function clear(inst|string $key = null) : void;
 
 public function fromArray(array $array) : void;
-public function toArray(bool $metaData = false) : array;</code></pre></p>
+public function toArray(bool $metaData = false) : array;
+</code></pre>
 
 
 
@@ -478,7 +485,7 @@ public function toArray(bool $metaData = false) : array;</code></pre></p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -486,10 +493,10 @@ public function toArray(bool $metaData = false) : array;</code></pre></p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -497,27 +504,28 @@ public function toArray(bool $metaData = false) : array;</code></pre></p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '..',
             siteName = 'zend-session';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
